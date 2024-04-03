@@ -1,4 +1,4 @@
-package productOrder.model;
+package com.productOrder.model;
 
 import java.util.*;
 
