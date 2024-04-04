@@ -2,7 +2,7 @@ package com.productOrder.model;
 
 import java.sql.Timestamp;
 
-public class Product_orderVO implements java.io.Serializable {
+public class ProductOrderVO implements java.io.Serializable {
 	private Integer product_order_no;
 	private Integer member_no;
 	private Integer product_price;
