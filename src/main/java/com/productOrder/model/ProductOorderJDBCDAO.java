@@ -10,20 +10,20 @@ public class ProductOorderJDBCDAO implements ProductOrderDAOInterface {
 	String passwd = "19920130";
 
 	private static final String INSERT_STMT = "INSERT INTO product_order (member_no, product_price, product_coupon_discount, product_checkout_amount, member_points, birthday_coupon_no, recipient, recipient_phone, recipient_address, product_orderdate, product_paydate, order_closedate, product_payment_status, product_process_status, product_order_allocation_amount, product_order_allocation_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	private static final String GET_ALL_STMT = "SELECT product_order_no, member_no, product_price, product_coupon_discount, product_checkout_amount, member_points, birthday_coupon_no, recipient, recipient_phone, recipient_address, product_orderdate, product_paydate, order_closedate, product_payment_status, product_process_status, product_order_allocation_amount, product_order_allocation_status FROM product_order order by member_no";
-	private static final String GET_ONE_STMT = "SELECT product_order_no, member_no, product_price, product_coupon_discount, product_checkout_amount, member_points, birthday_coupon_no, recipient, recipient_phone, recipient_address, product_orderdate, product_paydate, order_closedate, product_payment_status, product_process_status, product_order_allocation_amount, product_order_allocation_status FROM product_order where member_no = ?";
+	private static final String GET_ALL_STMT = "SELECT product_order_no, member_no, product_price, product_coupon_discount, product_checkout_amount, member_points, birthday_coupon_no, recipient, recipient_phone, recipient_address, product_orderdate, product_paydate, order_closedate, product_payment_status, product_process_status, product_order_allocation_amount, product_order_allocation_status FROM product_order order by product_order_no";
+	private static final String GET_ONE_STMT = "SELECT product_order_no, member_no, product_price, product_coupon_discount, product_checkout_amount, member_points, birthday_coupon_no, recipient, recipient_phone, recipient_address, product_orderdate, product_paydate, order_closedate, product_payment_status, product_process_status, product_order_allocation_amount, product_order_allocation_status FROM product_order where product_order_no = ?";
 	private static final String DELETE = "DELETE FROM product_order where product_order_no = ?";
-	//													1					2
+	//													               1			   2
 	private static final String UPDATE = "UPDATE product_order set member_no=?, product_price=?, "
-			//						3					4					5
+			//				3					   4				        5
 			+ "product_coupon_discount=?, product_checkout_amount=?, member_points=?, "
 			//				6             7             8					9
 			+ "birthday_coupon_no=?, recipient=?, recipient_phone=?, recipient_address=?, "
-			//				10				11				12
+			//				10			  11				12
 			+ "product_orderdate=?, product_paydate=?, order_closedate=?, "
-			//				13					14
+			//				13					   14
 			+ "product_payment_status=?, product_process_status=?, "
-			//				15								16
+			//				15								     16
 			+ "product_order_allocation_amount=?, product_order_allocation_status=? "
 			//				17
 			+ "where product_order_no = ?";
@@ -204,7 +204,7 @@ public class ProductOorderJDBCDAO implements ProductOrderDAOInterface {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				// product_orderVO 也稱為 Domain objects
+				// productOrderVO 也稱為 Domain objects
 				productOrderVO = new ProductOrderVO();
 				productOrderVO.setProduct_order_no(rs.getInt("product_order_no"));
 				productOrderVO.setMember_no(rs.getInt("member_no"));
@@ -276,7 +276,7 @@ public class ProductOorderJDBCDAO implements ProductOrderDAOInterface {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				// product_orderVO 也稱為 Domain objects
+				// productOrderVO 也稱為 Domain objects
 				productOrderVO = new ProductOrderVO();
 				productOrderVO.setProduct_order_no(rs.getInt("product_order_no"));
 				productOrderVO.setMember_no(rs.getInt("member_no"));
