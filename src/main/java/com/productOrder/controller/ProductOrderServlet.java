@@ -98,7 +98,7 @@ public class ProductOrderServlet extends HttpServlet {
 			RequestDispatcher successView = req.getRequestDispatcher(url);// 成功轉交 update_productOrder_input.jsp
 			successView.forward(req, res);
 		}
-		
+
 		if ("update".equals(action)) { // 來自update_productOrder_input.jsp的請求
 
 			List<String> errorMsgs = new LinkedList<String>();
@@ -113,13 +113,13 @@ public class ProductOrderServlet extends HttpServlet {
 
 			Integer product_price = Integer.valueOf(req.getParameter("product_price").trim());
 
-Integer product_coupon_discount = Integer.valueOf(req.getParameter("product_coupon_discount").trim());
+			Integer product_coupon_discount = Integer.valueOf(req.getParameter("product_coupon_discount").trim());
 
 			Integer product_checkout_amount = Integer.valueOf(req.getParameter("product_checkout_amount").trim());
 
-Integer member_points = Integer.valueOf(req.getParameter("member_points").trim());
+			Integer member_points = Integer.valueOf(req.getParameter("member_points").trim());
 
-Integer birthday_coupon_no = Integer.valueOf(req.getParameter("birthday_coupon_no").trim());
+			Integer birthday_coupon_no = Integer.valueOf(req.getParameter("birthday_coupon_no").trim());
 
 			String recipient = req.getParameter("recipient");
 			String recipientReg = "^[(\u4e00-\u9fa5)(a-zA-Z0-9_)]{2,10}$";
@@ -155,13 +155,13 @@ Integer birthday_coupon_no = Integer.valueOf(req.getParameter("birthday_coupon_n
 				errorMsgs.add("請輸入商品訂單付款時間!");
 			}
 
-java.sql.Timestamp order_closedate = null;
-try {
-order_closedate= java.sql.Timestamp.valueOf(req.getParameter("order_closedate").trim());
-} catch (IllegalArgumentException e) {
-	order_closedate=new java.sql.Timestamp(System.currentTimeMillis());
-	errorMsgs.add("請輸入商品訂單結案時間!");
-}
+			java.sql.Timestamp order_closedate = null;
+			try {
+				order_closedate = java.sql.Timestamp.valueOf(req.getParameter("order_closedate").trim());
+			} catch (IllegalArgumentException e) {
+				order_closedate = new java.sql.Timestamp(System.currentTimeMillis());
+				errorMsgs.add("請輸入商品訂單結案時間!");
+			}
 
 			Byte product_payment_status = Byte.valueOf(req.getParameter("product_payment_status").trim());
 
@@ -178,16 +178,16 @@ order_closedate= java.sql.Timestamp.valueOf(req.getParameter("order_closedate").
 			productOrderVO.setProduct_order_no(product_order_no);
 			productOrderVO.setMember_no(member_no);
 			productOrderVO.setProduct_price(product_price);
-productOrderVO.setProduct_coupon_discount(product_coupon_discount);
+			productOrderVO.setProduct_coupon_discount(product_coupon_discount);
 			productOrderVO.setProduct_checkout_amount(product_checkout_amount);
-productOrderVO.setMember_points(member_points);
-productOrderVO.setBirthday_coupon_no(birthday_coupon_no);
+			productOrderVO.setMember_points(member_points);
+			productOrderVO.setBirthday_coupon_no(birthday_coupon_no);
 			productOrderVO.setRecipient(recipient);
 			productOrderVO.setRecipient_phone(recipient_phone);
 			productOrderVO.setRecipient_address(recipient_address);
 			productOrderVO.setProduct_orderdate(product_orderdate);
 			productOrderVO.setProduct_paydate(product_paydate);
-productOrderVO.setOrder_closedate(order_closedate);
+			productOrderVO.setOrder_closedate(order_closedate);
 			productOrderVO.setProduct_payment_status(product_payment_status);
 			productOrderVO.setProduct_process_status(product_process_status);
 			productOrderVO.setProduct_order_allocation_amount(product_order_allocation_amount);
@@ -200,10 +200,14 @@ productOrderVO.setOrder_closedate(order_closedate);
 				failureView.forward(req, res);
 				return; // 程式中斷
 			}
-			
+
 			/*************************** 2.開始修改資料 *****************************************/
 			ProductOrderService productOrderSvc = new ProductOrderService();
-			productOrderVO = productOrderSvc.updateProductOrder(product_order_no, member_no, product_price, product_coupon_discount, product_checkout_amount, member_points, birthday_coupon_no, recipient, recipient_phone, recipient_address, product_orderdate, product_paydate, order_closedate, product_payment_status, product_process_status, product_order_allocation_amount, product_order_allocation_status);
+			productOrderVO = productOrderSvc.updateProductOrder(product_order_no, member_no, product_price,
+					product_coupon_discount, product_checkout_amount, member_points, birthday_coupon_no, recipient,
+					recipient_phone, recipient_address, product_orderdate, product_paydate, order_closedate,
+					product_payment_status, product_process_status, product_order_allocation_amount,
+					product_order_allocation_status);
 
 			/*************************** 3.修改完成,準備轉交(Send the Success view) *************/
 			req.setAttribute("productOrderVO", productOrderVO); // 資料庫update成功後,正確的的productOrderVO物件,存入req
@@ -224,13 +228,13 @@ productOrderVO.setOrder_closedate(order_closedate);
 
 			Integer product_price = Integer.valueOf(req.getParameter("product_price").trim());
 
-Integer product_coupon_discount = Integer.valueOf(req.getParameter("product_coupon_discount").trim());
+			Integer product_coupon_discount = Integer.valueOf(req.getParameter("product_coupon_discount").trim());
 
 			Integer product_checkout_amount = Integer.valueOf(req.getParameter("product_checkout_amount").trim());
 
-Integer member_points = Integer.valueOf(req.getParameter("member_points").trim());
+			Integer member_points = Integer.valueOf(req.getParameter("member_points").trim());
 
-Integer birthday_coupon_no = Integer.valueOf(req.getParameter("birthday_coupon_no").trim());
+			Integer birthday_coupon_no = Integer.valueOf(req.getParameter("birthday_coupon_no").trim());
 
 			String recipient = req.getParameter("recipient");
 			String recipientReg = "^[(\u4e00-\u9fa5)(a-zA-Z0-9_)]{2,10}$";
@@ -266,13 +270,13 @@ Integer birthday_coupon_no = Integer.valueOf(req.getParameter("birthday_coupon_n
 				errorMsgs.add("請輸入商品訂單付款時間!");
 			}
 
-java.sql.Timestamp order_closedate = null;
-try {
-order_closedate= java.sql.Timestamp.valueOf(req.getParameter("order_closedate").trim());
-} catch (IllegalArgumentException e) {
-	order_closedate=new java.sql.Timestamp(System.currentTimeMillis());
-	errorMsgs.add("請輸入商品訂單結案時間!");
-}
+			java.sql.Timestamp order_closedate = null;
+			try {
+				order_closedate = java.sql.Timestamp.valueOf(req.getParameter("order_closedate").trim());
+			} catch (IllegalArgumentException e) {
+				order_closedate = new java.sql.Timestamp(System.currentTimeMillis());
+				errorMsgs.add("請輸入商品訂單結案時間!");
+			}
 
 			Byte product_payment_status = Byte.valueOf(req.getParameter("product_payment_status").trim());
 
@@ -288,16 +292,16 @@ order_closedate= java.sql.Timestamp.valueOf(req.getParameter("order_closedate").
 			productOrderVO = new ProductOrderVO();
 			productOrderVO.setMember_no(member_no);
 			productOrderVO.setProduct_price(product_price);
-productOrderVO.setProduct_coupon_discount(product_coupon_discount);
+			productOrderVO.setProduct_coupon_discount(product_coupon_discount);
 			productOrderVO.setProduct_checkout_amount(product_checkout_amount);
-productOrderVO.setMember_points(member_points);
-productOrderVO.setBirthday_coupon_no(birthday_coupon_no);
+			productOrderVO.setMember_points(member_points);
+			productOrderVO.setBirthday_coupon_no(birthday_coupon_no);
 			productOrderVO.setRecipient(recipient);
 			productOrderVO.setRecipient_phone(recipient_phone);
 			productOrderVO.setRecipient_address(recipient_address);
 			productOrderVO.setProduct_orderdate(product_orderdate);
 			productOrderVO.setProduct_paydate(product_paydate);
-productOrderVO.setOrder_closedate(order_closedate);
+			productOrderVO.setOrder_closedate(order_closedate);
 			productOrderVO.setProduct_payment_status(product_payment_status);
 			productOrderVO.setProduct_process_status(product_process_status);
 			productOrderVO.setProduct_order_allocation_amount(product_order_allocation_amount);
@@ -313,7 +317,10 @@ productOrderVO.setOrder_closedate(order_closedate);
 
 			/*************************** 2.開始新增資料 ***************************************/
 			ProductOrderService productOrderSvc = new ProductOrderService();
-			productOrderVO = productOrderSvc.addProductOrder(member_no, product_price, product_coupon_discount, product_checkout_amount, member_points, birthday_coupon_no, recipient, recipient_phone, recipient_address, product_orderdate, product_paydate, order_closedate, product_payment_status, product_process_status, product_order_allocation_amount, product_order_allocation_status);
+			productOrderVO = productOrderSvc.addProductOrder(member_no, product_price, product_coupon_discount,
+					product_checkout_amount, member_points, birthday_coupon_no, recipient, recipient_phone,
+					recipient_address, product_orderdate, product_paydate, order_closedate, product_payment_status,
+					product_process_status, product_order_allocation_amount, product_order_allocation_status);
 
 			/*************************** 3.新增完成,準備轉交(Send the Success view) ***********/
 			String url = "/productorder/listAllProductOrder.jsp";
