@@ -5,21 +5,24 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernatesample?serverTimezone=Asia/Taipei</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ezban?serverTimezone=Asia/Taipei</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">19920130</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         
-        <property name="hibernate.show_sql">true</property>
-        
-        <property name="hibernate.hbm2ddl.auto">validate</property>
-        
-        <property name="hibernate.current_session_context_class">thread</property>
-        
+        <property name="hibernate.show_sql">true</property>        
+        <property name="hibernate.hbm2ddl.auto">validate</property>        
+        <property name="hibernate.current_session_context_class">thread</property>       
         <property name="hibernate.format_sql">true</property>
         
-        <mapping class="test.hellohibernate.Dept"/>
-        
-        
+        <mapping class="com.productOrderDetailHibernate.ProductOrderDetail"/>
+      	<mapping class="com.productReportHibernate.ProductReport"/>
+      	<mapping class="com.productReportHibernate.Product"/>
+      	<mapping class="com.productReportHibernate.Member"/>
+      	<mapping class="com.productReportHibernate.Admin"/>      	
+      	<mapping class="com.saveProductHibernate.SaveProduct"/>
+      	<mapping class="photoTest.ProductImgTest"/>
+      	
+      	       
     </session-factory>
 </hibernate-configuration>
