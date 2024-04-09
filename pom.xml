@@ -77,7 +77,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<!--  <version>5.6.9.Final</version>  -->
+			<!-- <version>5.6.9.Final</version> -->
 		</dependency>
 		<!--  hibernate-c3p0 連線池  -->
 		<!--  spring-boot 已內建依賴，但預設未下載  -->
@@ -225,6 +225,11 @@
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 			<!--  <version>2.9.0</version>  -->
+		</dependency>
+		<dependency>
+			<groupId>idv.david</groupId>
+			<artifactId>HibernateEx</artifactId>
+			<version>1.0</version>
 		</dependency>
 	</dependencies>
 	<build>

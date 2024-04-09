@@ -3,7 +3,7 @@ package com.productOrder.model;
 import java.util.*;
 import java.sql.*;
 
-public class ProductOorderJDBCDAO implements ProductOrderDAOInterface {
+public class ProductOrderJDBCDAO implements ProductOrderDAOInterface {
 	String driver = "com.mysql.cj.jdbc.Driver";
 	String url = "jdbc:mysql://localhost:3306/ezban?serverTimezone=Asia/Taipei";
 	String userid = "root";
@@ -284,7 +284,7 @@ public class ProductOorderJDBCDAO implements ProductOrderDAOInterface {
 				productOrderVO.setProduct_coupon_discount(rs.getInt("product_coupon_discount"));
 				productOrderVO.setProduct_checkout_amount(rs.getInt("product_checkout_amount"));
 				productOrderVO.setMember_points(rs.getInt("member_points"));
-				productOrderVO.setBirthday_coupon_no(rs.getInt("product_order_no"));
+				productOrderVO.setBirthday_coupon_no(rs.getInt("birthday_coupon_no"));
 				productOrderVO.setRecipient(rs.getString("recipient"));
 				productOrderVO.setRecipient_phone(rs.getString("recipient_phone"));
 				productOrderVO.setRecipient_address(rs.getString("recipient_address"));
@@ -334,11 +334,11 @@ public class ProductOorderJDBCDAO implements ProductOrderDAOInterface {
 //	public static void main(String[] args) {
 //
 //		ProductOrderJDBCDAO dao = new ProductOrderJDBCDAO();
-//
+//		
 //		// 新增
-//		Product_orderVO productOrderVO1 = new Product_orderVO();
-//
-//		productOrderVO1.setMember_no(100);
+//		ProductOrderVO productOrderVO1 = new ProductOrderVO();
+
+//		productOrderVO1.setMember_no(1);
 //		productOrderVO1.setProduct_price(699);
 //		productOrderVO1.setProduct_coupon_discount(100);
 //		productOrderVO1.setProduct_checkout_amount(599);
@@ -347,19 +347,19 @@ public class ProductOorderJDBCDAO implements ProductOrderDAOInterface {
 //		productOrderVO1.setRecipient("大吳1");
 //		productOrderVO1.setRecipient_phone("0912345678");
 //		productOrderVO1.setRecipient_address("桃園市中壢區1號");
-//		productOrderVO1.setProduct_orderdate(java.sql.Timestamp.valueOf("2024-04-04"));
-//		productOrderVO1.setProduct_paydate(java.sql.Timestamp.valueOf("2024-04-04"));
-//		productOrderVO1.setOrder_closedate(java.sql.Timestamp.valueOf("2024-04-05"));
-//		productOrderVO1.setProduct_payment_status(1);
-//		productOrderVO1.setProduct_process_status(2);
+//		productOrderVO1.setProduct_orderdate(java.sql.Timestamp.valueOf("2024-04-04 00:00:00"));
+//		productOrderVO1.setProduct_paydate(java.sql.Timestamp.valueOf("2024-04-04 00:00:00"));
+//		productOrderVO1.setOrder_closedate(java.sql.Timestamp.valueOf("2024-04-05 00:00:00"));
+//		productOrderVO1.setProduct_payment_status((byte)1);
+//		productOrderVO1.setProduct_process_status((byte)2);
 //		productOrderVO1.setProduct_order_allocation_amount(500);
-//		productOrderVO1.setProduct_order_allocation_status(1);
+//		productOrderVO1.setProduct_order_allocation_status((byte)1);
 //		dao.insert(productOrderVO1);
 //
 //		// 修改
 //		ProductOrderVO productOrderVO2 = new ProductOrderVO();
-//		productOrderVO2.setProduct_order_no(11);
-//		productOrderVO2.setMember_no(100);
+//		productOrderVO2.setProduct_order_no(2);
+//		productOrderVO2.setMember_no(1);
 //		productOrderVO2.setProduct_price(699);
 //		productOrderVO2.setProduct_coupon_discount(100);
 //		productOrderVO2.setProduct_checkout_amount(599);
@@ -368,17 +368,17 @@ public class ProductOorderJDBCDAO implements ProductOrderDAOInterface {
 //		productOrderVO2.setRecipient("大吳2");
 //		productOrderVO2.setRecipient_phone("0912345678");
 //		productOrderVO2.setRecipient_address("桃園市中壢區1號");
-//		productOrderVO2.setProduct_orderdate(java.sql.Timestamp.valueOf("2024-04-04"));
-//		productOrderVO2.setProduct_paydate(java.sql.Timestamp.valueOf("2024-04-04"));
-//		productOrderVO2.setOrder_closedate(java.sql.Timestamp.valueOf("2024-04-05"));
-//		productOrderVO2.setProduct_payment_status(1);
-//		productOrderVO2.setProduct_process_status(2);
+//		productOrderVO2.setProduct_orderdate(java.sql.Timestamp.valueOf("2024-04-04 00:00:00"));
+//		productOrderVO2.setProduct_paydate(java.sql.Timestamp.valueOf("2024-04-04 00:00:00"));
+//		productOrderVO2.setOrder_closedate(java.sql.Timestamp.valueOf("2024-04-05 00:10:00"));
+//		productOrderVO2.setProduct_payment_status((byte)1);
+//		productOrderVO2.setProduct_process_status((byte)2);
 //		productOrderVO2.setProduct_order_allocation_amount(500);
-//		productOrderVO2.setProduct_order_allocation_status(1);
+//		productOrderVO2.setProduct_order_allocation_status((byte)1);
 //		dao.update(productOrderVO2);
 //
 //		// 刪除
-//		dao.delete(9);
+//		dao.delete(3);
 //
 //		// 查詢
 //		ProductOrderVO productOrderVO3 = dao.findByPrimaryKey(1);
