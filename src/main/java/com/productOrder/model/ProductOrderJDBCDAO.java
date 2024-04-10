@@ -58,14 +58,11 @@ public class ProductOrderJDBCDAO implements ProductOrderDAOInterface {
 			pstmt.setByte(16, productOrderVO.getProduct_order_allocation_status());
 
 			pstmt.executeUpdate();
-
-			// Handle any driver errors
+			
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException("Couldn't load database driver. " + e.getMessage());
-			// Handle any SQL errors
 		} catch (SQLException se) {
 			throw new RuntimeException("A database error occured. " + se.getMessage());
-			// Clean up JDBC resources
 		} finally {
 			if (pstmt != null) {
 				try {
@@ -117,13 +114,10 @@ public class ProductOrderJDBCDAO implements ProductOrderDAOInterface {
 
 			pstmt.executeUpdate();
 
-			// Handle any driver errors
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException("Couldn't load database driver. " + e.getMessage());
-			// Handle any SQL errors
 		} catch (SQLException se) {
 			throw new RuntimeException("A database error occured. " + se.getMessage());
-			// Clean up JDBC resources
 		} finally {
 			if (pstmt != null) {
 				try {
@@ -159,13 +153,10 @@ public class ProductOrderJDBCDAO implements ProductOrderDAOInterface {
 
 			pstmt.executeUpdate();
 
-			// Handle any driver errors
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException("Couldn't load database driver. " + e.getMessage());
-			// Handle any SQL errors
 		} catch (SQLException se) {
 			throw new RuntimeException("A database error occured. " + se.getMessage());
-			// Clean up JDBC resources
 		} finally {
 			if (pstmt != null) {
 				try {
@@ -223,16 +214,12 @@ public class ProductOrderJDBCDAO implements ProductOrderDAOInterface {
 				productOrderVO.setProduct_process_status(rs.getByte("product_process_status"));
 				productOrderVO.setProduct_order_allocation_amount(rs.getInt("product_order_allocation_amount"));
 				productOrderVO.setProduct_order_allocation_status(rs.getByte("product_order_allocation_status"));
-
 			}
 
-			// Handle any driver errors
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException("Couldn't load database driver. " + e.getMessage());
-			// Handle any SQL errors
 		} catch (SQLException se) {
 			throw new RuntimeException("A database error occured. " + se.getMessage());
-			// Clean up JDBC resources
 		} finally {
 			if (rs != null) {
 				try {
@@ -298,13 +285,10 @@ public class ProductOrderJDBCDAO implements ProductOrderDAOInterface {
 				list.add(productOrderVO); // Store the row in the list
 			}
 
-			// Handle any driver errors
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException("Couldn't load database driver. " + e.getMessage());
-			// Handle any SQL errors
 		} catch (SQLException se) {
 			throw new RuntimeException("A database error occured. " + se.getMessage());
-			// Clean up JDBC resources
 		} finally {
 			if (rs != null) {
 				try {
@@ -331,6 +315,7 @@ public class ProductOrderJDBCDAO implements ProductOrderDAOInterface {
 		return list;
 	}
 
+	//==================================以下為使用main方法測試可否正常執行====================================
 //	public static void main(String[] args) {
 //
 //		ProductOrderJDBCDAO dao = new ProductOrderJDBCDAO();

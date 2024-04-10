@@ -93,48 +93,45 @@ th, td {
 		<c:forEach var="productOrderVO" items="${list}" begin="<%=pageIndex%>"
 			end="<%=pageIndex+rowsPerPage-1%>">
 
-			<tr>
-				<td>${productOrderVO.product_order_no}</td>
-				<td>${productOrderVO.member_no}</td>
-				<td>${productOrderVO.product_price}</td>
-				<td>${productOrderVO.product_coupon_discount}</td>
-				<td>${productOrderVO.product_checkout_amount}</td>
-				<td>${productOrderVO.member_points}</td>
-				<td>${productOrderVO.birthday_coupon_no}</td>
-				<td>${productOrderVO.recipient}</td>
-				<td>${productOrderVO.recipient_phone}</td>
-				<td>${productOrderVO.recipient_address}</td>
-				<td>${productOrderVO.product_orderdate}</td>
-				<td>${productOrderVO.product_paydate}</td>
-				<td>${productOrderVO.order_closedate}</td>
-				<td>${productOrderVO.product_payment_status}</td>
-				<td>${productOrderVO.product_process_status}</td>
-				<td>${productOrderVO.product_order_allocation_amount}</td>
-				<td>${productOrderVO.product_order_allocation_status}</td>
-				<td>
-					<FORM METHOD="post"
-						ACTION="<%=request.getContextPath()%>/productorder/productOrder.do"
-						style="margin-bottom: 0px;">
-						<input type="submit" value="修改"> <input type="hidden"
-							name="product_order_no"
-							value="${productOrderVO.product_order_no}"> <input
-							type="hidden" name="action" value="getOne_For_Update">
-					</FORM>
-				</td>
-				<td>
-					<FORM METHOD="post"
-						ACTION="<%=request.getContextPath()%>/productOrder/productOrder.do"
-						style="margin-bottom: 0px;">
-						<input type="button" disable value="刪除"> <input
-							type="hidden" name="product_order_no"
-							value="${productOrderVO.product_order_no}"> <input
-							type="hidden" name="action" value="delete">
-					</FORM>
-				</td>
-			</tr>
-		</c:forEach>
+		<tr>
+			<td>${productOrderVO.product_order_no}</td>
+			<td>${productOrderVO.member_no}</td>
+			<td>${productOrderVO.product_price}</td>
+			<td>${productOrderVO.product_coupon_discount}</td>
+			<td>${productOrderVO.product_checkout_amount}</td>
+			<td>${productOrderVO.member_points}</td>
+			<td>${productOrderVO.birthday_coupon_no}</td>
+			<td>${productOrderVO.recipient}</td>
+			<td>${productOrderVO.recipient_phone}</td>
+			<td>${productOrderVO.recipient_address}</td>
+			<td>${productOrderVO.product_orderdate}</td>
+			<td>${productOrderVO.product_paydate}</td>
+			<td>${productOrderVO.order_closedate}</td>
+			<td>${productOrderVO.product_payment_status}</td>
+			<td>${productOrderVO.product_process_status}</td>
+			<td>${productOrderVO.product_order_allocation_amount}</td>
+			<td>${productOrderVO.product_order_allocation_status}</td>
+			<td>
+				<FORM METHOD="post"
+					ACTION="<%=request.getContextPath()%>/productorder/productOrder.do"
+					style="margin-bottom: 0px;">
+					<input type="submit" value="修改"> 
+					<input type="hidden" name="product_order_no" value="${productOrderVO.product_order_no}"> 
+					<input type="hidden" name="action" value="getOne_For_Update">
+				</FORM>
+			</td>
+			<td>
+				<FORM METHOD="post"
+					ACTION="<%=request.getContextPath()%>/productOrder/productOrder.do"
+					style="margin-bottom: 0px;">
+					<input type="button" disable style="background-color: gray" value="刪除"> 
+					<input type="hidden" name="product_order_no" value="${productOrderVO.product_order_no}"> 
+					<input type="hidden" name="action" value="delete">
+				</FORM>
+			</td>
+		</tr>
+	</c:forEach>
 	</table>
 	<%@ include file="page2.file"%>
-
 </body>
 </html>

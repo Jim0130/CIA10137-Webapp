@@ -39,16 +39,16 @@ table {
 	margin-bottom: 20px;
 }
 
-th, td {
-	padding: 10px;
+th,td{
+	padding: 20px 10px 0px 10px;
 	border: 1px solid #CCCCCC;
 	text-align: center;
 }
 
 input[type="text"], select {
 	width: 100%;
-	padding: 5px;
-	margin: 5px 0;
+	padding: 10px;
+	margin: 1px 0;
 }
 
 .errorMsg {
@@ -159,49 +159,51 @@ input[type="submit"]:hover {
 			</tr>
 			<tr>
 				<td>商品訂單成立時間</td>
-				<td><input name="product_orderdate" id="f_date1" type="text"></td>
-				<td><%=productOrderVO != null ? productOrderVO.getProduct_orderdate() : ""%></td>
+				<td><input type="datetime" name="product_orderdate"
+					value="<%=productOrderVO != null ? productOrderVO.getProduct_orderdate() : ""%>"
+					size="45" /></td>
 			</tr>
 			<tr>
 				<td>商品訂單付款時間</td>
-				<td><input name="product_paydate" id="f_date1" type="text"></td>
-				<td><%=productOrderVO != null ? productOrderVO.getProduct_paydate() : ""%></td>
+				<td><input type="datetime" name="product_paydate"
+					value="<%=productOrderVO != null ? productOrderVO.getProduct_paydate() : ""%>"
+					size="45" /></td>
 			</tr>
 			<tr>
 				<td>商品訂單結案時間</td>
-				<td><input name="order_closedate" id="f_date1" type="text"></td>
-				<td><%=productOrderVO != null ? productOrderVO.getOrder_closedate() : ""%></td>
+				<td><input type="datetime" name="order_closedate"
+					value="<%=productOrderVO != null ? productOrderVO.getOrder_closedate() : ""%>"
+					size="45" /></td>
 			</tr>
 			<tr>
 				<td>商品訂單付款狀態</td>
 				<td><input type="TEXT" name="product_payment_status"
-					value="<%=(productOrderVO != null) ? productOrderVO.getProduct_payment_status() : ""%> "
+					value="<%=(productOrderVO != null) ? productOrderVO.getProduct_payment_status() : ""%>"
 					size="45" /></td>
 			</tr>
 			<tr>
 				<td>商品訂單處理狀態</td>
 				<td><input type="TEXT" name="product_process_status"
-					value="<%=(productOrderVO != null) ? productOrderVO.getProduct_process_status() : ""%> "
+					value="<%=(productOrderVO != null) ? productOrderVO.getProduct_process_status() : ""%>"
 					size="45" /></td>
 			</tr>
 			<tr>
 				<td>商品訂單撥款金額</td>
 				<td><input type="TEXT" name="product_order_allocation_amount"
-					value="<%=(productOrderVO != null) ? productOrderVO.getProduct_order_allocation_amount() : ""%> "
+					value="<%=(productOrderVO != null) ? productOrderVO.getProduct_order_allocation_amount() : ""%>"
 					size="45" /></td>
 			</tr>
 			<tr>
 				<td>商品訂單撥款狀態</td>
 				<td><input type="TEXT" name="product_order_allocation_status"
-					value="<%=(productOrderVO != null) ? productOrderVO.getProduct_order_allocation_status() : ""%> "
+					value="<%=(productOrderVO != null) ? productOrderVO.getProduct_order_allocation_status() : ""%>"
 					size="45" /></td>
 			</tr>
 
 		</table>
-		<br> <input type="hidden" name="action" value="update"> <input
-			type="hidden" name="product_order_no"
-			value="<%=productOrderVO.getProduct_order_no()%>"> <input
-			type="submit" value="送出修改">
+		<br> <input type="hidden" name="action" value="update"> 
+		<input type="hidden" name="product_order_no" value="<%=productOrderVO.getProduct_order_no()%>"> 
+		<input type="submit" value="送出修改">
 	</FORM>
 </body>
 </html>

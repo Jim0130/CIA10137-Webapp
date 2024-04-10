@@ -11,10 +11,13 @@ public class ProductOrderService {
 		dao = new ProductOrderJDBCDAO();
 	}
 
-	public ProductOrderVO addProductOrder(Integer member_no, Integer product_price, Integer product_coupon_discount, Integer product_checkout_amount, Integer member_points, Integer birthday_coupon_no, String recipient, String recipient_phone, String recipient_address, Timestamp product_orderdate, Timestamp product_paydate, Timestamp order_closedate, Byte product_payment_status, Byte product_process_status, Integer product_order_allocation_amount, Byte product_order_allocation_status) {
+	public ProductOrderVO addProductOrder(Integer member_no, Integer product_price, Integer product_coupon_discount,
+		   Integer product_checkout_amount, Integer member_points, Integer birthday_coupon_no, String recipient,
+		   String recipient_phone, String recipient_address, Timestamp product_orderdate, Timestamp product_paydate,
+		   Timestamp order_closedate, Byte product_payment_status, Byte product_process_status,
+		   Integer product_order_allocation_amount, Byte product_order_allocation_status) {
 
 		ProductOrderVO productOrderVO = new ProductOrderVO();
-
 		productOrderVO.setMember_no(member_no);
 		productOrderVO.setProduct_price(product_price);
 		productOrderVO.setProduct_coupon_discount(product_coupon_discount);
@@ -31,16 +34,18 @@ public class ProductOrderService {
 		productOrderVO.setProduct_process_status(product_process_status);
 		productOrderVO.setProduct_order_allocation_amount(product_order_allocation_amount);
 		productOrderVO.setProduct_order_allocation_status(product_order_allocation_status);
-		
 		dao.insert(productOrderVO);
-
 		return productOrderVO;
 	}
 
-	public ProductOrderVO updateProductOrder(Integer product_order_no, Integer member_no, Integer product_price, Integer product_coupon_discount, Integer product_checkout_amount, Integer member_points, Integer birthday_coupon_no, String recipient, String recipient_phone, String recipient_address, Timestamp product_orderdate, Timestamp product_paydate, Timestamp order_closedate, Byte product_payment_status, Byte product_process_status, Integer product_order_allocation_amount, Byte product_order_allocation_status) {
+	public ProductOrderVO updateProductOrder(Integer product_order_no, Integer member_no, Integer product_price,
+		   Integer product_coupon_discount, Integer product_checkout_amount, Integer member_points,
+		   Integer birthday_coupon_no, String recipient, String recipient_phone, String recipient_address,
+		   Timestamp product_orderdate, Timestamp product_paydate, Timestamp order_closedate,
+		   Byte product_payment_status, Byte product_process_status, Integer product_order_allocation_amount,
+		   Byte product_order_allocation_status) {
 
 		ProductOrderVO productOrderVO = new ProductOrderVO();
-
 		productOrderVO.setProduct_order_no(product_order_no);
 		productOrderVO.setMember_no(member_no);
 		productOrderVO.setProduct_price(product_price);

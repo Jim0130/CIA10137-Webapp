@@ -92,7 +92,6 @@ input[type="submit"]:hover {
 
 	<FORM METHOD="post" ACTION="productOrder.do" name="form1">
 		<table>
-
 			<tr>
 				<td>商品訂單<br>編號:<font color=red><b>*</b></font></td>
 				<td><%=(productOrderVO != null) ? productOrderVO.getProduct_order_no() : ""%></td>
@@ -197,11 +196,9 @@ input[type="submit"]:hover {
 					value="<%=(productOrderVO != null) ? productOrderVO.getProduct_order_allocation_status() : ""%>"
 					size="45" /></td>
 			</tr>
-
 		</table>
-		<br> <input type="hidden" name="action" value="insert"> <input
-			type="submit" value="送出新增">
+		<br> <input type="hidden" name="action" value="insert"> 
+			 <input type="submit" value="送出新增">
 	</FORM>
-
 </body>
 </html>
