@@ -102,14 +102,27 @@ public class ProductOrderServlet extends HttpServlet {
 
 			/*************************** 1.接收請求參數 - 輸入格式的錯誤處理 **********************/
 			Integer product_order_no = Integer.valueOf(req.getParameter("product_order_no").trim());
-
+			
 			Integer member_no = Integer.valueOf(req.getParameter("member_no").trim());
-
+			if (member_no == null )  {
+				errorMsgs.add("會員編號請勿空白");
+			}else if(member_no== 0) { 
+				errorMsgs.add("查無此會員");
+            }	
+			
 			Integer product_price = Integer.valueOf(req.getParameter("product_price").trim());
-
+			if (product_price == null )  {
+				errorMsgs.add("商品金額請勿空白");
+			}else if(product_price== 0) { 
+				errorMsgs.add("商品金額不可為0");
+            }	
+			
 			Integer product_coupon_discount = Integer.valueOf(req.getParameter("product_coupon_discount").trim());
-
+			
 			Integer product_checkout_amount = Integer.valueOf(req.getParameter("product_checkout_amount").trim());
+			if (product_checkout_amount == null )  {
+				errorMsgs.add("商品結帳金額請勿空白");
+			}	
 
 			Integer member_points = Integer.valueOf(req.getParameter("member_points").trim());
 
@@ -118,9 +131,9 @@ public class ProductOrderServlet extends HttpServlet {
 			String recipient = req.getParameter("recipient");
 			String recipientReg = "^[(\u4e00-\u9fa5)(a-zA-Z0-9_)]{2,10}$";
 			if (recipient == null || recipient.trim().length() == 0) {
-				errorMsgs.add("員工姓名: 請勿空白");
-			} else if (!recipient.trim().matches(recipientReg)) { // 以下練習正則(規)表示式(regular-expression)
-				errorMsgs.add("員工姓名: 只能是中、英文字母、數字和_ , 且長度必需在2到10之間");
+				errorMsgs.add("收件人姓名: 請勿空白");
+			} else if (!recipient.trim().matches(recipientReg)) { 
+				errorMsgs.add("收件人姓名: 只能是中、英文字母、數字和_ , 且長度必需在2到10之間");
 			}
 
 			String recipient_phone = req.getParameter("recipient_phone").trim();
@@ -150,25 +163,27 @@ public class ProductOrderServlet extends HttpServlet {
 			}
 
 			java.sql.Timestamp order_closedate = null;
-			try {
-				order_closedate = java.sql.Timestamp.valueOf(req.getParameter("order_closedate").trim());
-			} catch (IllegalArgumentException e) {
-				order_closedate = new java.sql.Timestamp(System.currentTimeMillis());
-				errorMsgs.add("請輸入商品訂單結案時間!");
-			}
 
 			Byte product_payment_status = Byte.valueOf(req.getParameter("product_payment_status").trim());
-
+			if (product_payment_status == null )  {
+				errorMsgs.add("商品訂單付款狀態請勿空白");
+			}
+			
 			Byte product_process_status = Byte.valueOf(req.getParameter("product_process_status").trim());
-
-			Integer product_order_allocation_amount = Integer
-					.valueOf(req.getParameter("product_order_allocation_amount").trim());
-
-			Byte product_order_allocation_status = Byte
-					.valueOf(req.getParameter("product_order_allocation_status").trim());
-
+			if (product_process_status == null )  {
+				errorMsgs.add("商品訂單處理狀態請勿空白");
+			}
+			
+			Integer product_order_allocation_amount = Integer.valueOf(req.getParameter("product_order_allocation_amount").trim());
+			if (product_order_allocation_amount == null )  {
+				errorMsgs.add("商品訂單撥款金額請勿空白");
+			}
+			Byte product_order_allocation_status = Byte.valueOf(req.getParameter("product_order_allocation_status").trim());
+			if (product_order_allocation_status == null )  {
+				errorMsgs.add("商品訂單撥款狀態請勿空白");
+			}
+			
 			ProductOrderVO productOrderVO = new ProductOrderVO();
-			productOrderVO = new ProductOrderVO();
 			productOrderVO.setProduct_order_no(product_order_no);
 			productOrderVO.setMember_no(member_no);
 			productOrderVO.setProduct_price(product_price);
@@ -216,12 +231,25 @@ public class ProductOrderServlet extends HttpServlet {
 
 			/*********************** 1.接收請求參數 - 輸入格式的錯誤處理 *************************/
 			Integer member_no = Integer.valueOf(req.getParameter("member_no").trim());
-
+			if (member_no == null )  {
+				errorMsgs.add("會員編號請勿空白");
+			}else if(member_no== 0) { 
+				errorMsgs.add("查無此會員");
+            }	
+			
 			Integer product_price = Integer.valueOf(req.getParameter("product_price").trim());
-
+			if (product_price == null )  {
+				errorMsgs.add("商品金額請勿空白");
+			}else if(product_price== 0) { 
+				errorMsgs.add("商品金額不可為0");
+            }	
+			
 			Integer product_coupon_discount = Integer.valueOf(req.getParameter("product_coupon_discount").trim());
-
+			
 			Integer product_checkout_amount = Integer.valueOf(req.getParameter("product_checkout_amount").trim());
+			if (product_checkout_amount == null )  {
+				errorMsgs.add("商品結帳金額請勿空白");
+			}	
 
 			Integer member_points = Integer.valueOf(req.getParameter("member_points").trim());
 
@@ -230,9 +258,9 @@ public class ProductOrderServlet extends HttpServlet {
 			String recipient = req.getParameter("recipient");
 			String recipientReg = "^[(\u4e00-\u9fa5)(a-zA-Z0-9_)]{2,10}$";
 			if (recipient == null || recipient.trim().length() == 0) {
-				errorMsgs.add("員工姓名: 請勿空白");
+				errorMsgs.add("收件人姓名: 請勿空白");
 			} else if (!recipient.trim().matches(recipientReg)) { 
-				errorMsgs.add("員工姓名: 只能是中、英文字母、數字和_ , 且長度必需在2到10之間");
+				errorMsgs.add("收件人姓名: 只能是中、英文字母、數字和_ , 且長度必需在2到10之間");
 			}
 
 			String recipient_phone = req.getParameter("recipient_phone").trim();
@@ -250,7 +278,7 @@ public class ProductOrderServlet extends HttpServlet {
 				product_orderdate = java.sql.Timestamp.valueOf(req.getParameter("product_orderdate").trim());
 			} catch (IllegalArgumentException e) {
 				product_orderdate = new java.sql.Timestamp(System.currentTimeMillis());
-				errorMsgs.add("請輸入商品訂單成立時間!");
+				errorMsgs.add("請輸入商品訂單成立時間");
 			}
 
 			java.sql.Timestamp product_paydate = null;
@@ -258,27 +286,30 @@ public class ProductOrderServlet extends HttpServlet {
 				product_paydate = java.sql.Timestamp.valueOf(req.getParameter("product_paydate").trim());
 			} catch (IllegalArgumentException e) {
 				product_paydate = new java.sql.Timestamp(System.currentTimeMillis());
-				errorMsgs.add("請輸入商品訂單付款時間!");
+				errorMsgs.add("請輸入商品訂單付款時間");
 			}
 
 			java.sql.Timestamp order_closedate = null;
-			try {
-				order_closedate = java.sql.Timestamp.valueOf(req.getParameter("order_closedate").trim());
-			} catch (IllegalArgumentException e) {
-				order_closedate = new java.sql.Timestamp(System.currentTimeMillis());
-				errorMsgs.add("請輸入商品訂單結案時間!");
-			}
 
 			Byte product_payment_status = Byte.valueOf(req.getParameter("product_payment_status").trim());
-
+			if (product_payment_status == null )  {
+				errorMsgs.add("商品訂單付款狀態請勿空白");
+			}
+			
 			Byte product_process_status = Byte.valueOf(req.getParameter("product_process_status").trim());
-
-			Integer product_order_allocation_amount = Integer
-					.valueOf(req.getParameter("product_order_allocation_amount").trim());
-
-			Byte product_order_allocation_status = Byte
-					.valueOf(req.getParameter("product_order_allocation_status").trim());
-
+			if (product_process_status == null )  {
+				errorMsgs.add("商品訂單處理狀態請勿空白");
+			}
+			
+			Integer product_order_allocation_amount = Integer.valueOf(req.getParameter("product_order_allocation_amount").trim());
+			if (product_order_allocation_amount == null )  {
+				errorMsgs.add("商品訂單撥款金額請勿空白");
+			}
+			Byte product_order_allocation_status = Byte.valueOf(req.getParameter("product_order_allocation_status").trim());
+			if (product_order_allocation_status == null )  {
+				errorMsgs.add("商品訂單撥款狀態請勿空白");
+			}
+			
 			ProductOrderVO productOrderVO = new ProductOrderVO();
 			productOrderVO.setMember_no(member_no);
 			productOrderVO.setProduct_price(product_price);
@@ -307,9 +338,9 @@ public class ProductOrderServlet extends HttpServlet {
 			/*************************** 2.開始新增資料 ***************************************/
 			ProductOrderService productOrderSvc = new ProductOrderService();
 			productOrderVO = productOrderSvc.addProductOrder(member_no, product_price, product_coupon_discount,
-					product_checkout_amount, member_points, birthday_coupon_no, recipient, recipient_phone,
-					recipient_address, product_orderdate, product_paydate, order_closedate, product_payment_status,
-					product_process_status, product_order_allocation_amount, product_order_allocation_status);
+			product_checkout_amount, member_points, birthday_coupon_no, recipient, recipient_phone,
+			recipient_address, product_orderdate, product_paydate, order_closedate, product_payment_status,
+			product_process_status, product_order_allocation_amount, product_order_allocation_status);
 
 			/*************************** 3.新增完成,準備轉交(Send the Success view) ***********/
 			String url = "/productorder/listAllProductOrder.jsp";

@@ -92,109 +92,73 @@ input[type="submit"]:hover {
 
 	<FORM METHOD="post" ACTION="productOrder.do" name="form1">
 		<table>
+<!-- 			<tr> -->
+<!-- 				<td>商品訂單<br>編號:<font color=red><b>*</b></font></td> -->
+<%-- 				<td><%=(productOrderVO == null) ?"" : productOrderVO.getProduct_order_no()%></td> --%>
+<!-- 			</tr> -->
 			<tr>
-				<td>商品訂單<br>編號:<font color=red><b>*</b></font></td>
-				<td><%=(productOrderVO != null) ? productOrderVO.getProduct_order_no() : ""%></td>
+				<td>會員編號</td>
+				<td><input type="TEXT" name="member_no" value="<%=(productOrderVO == null)?"0" : productOrderVO.getMember_no()%>" size="45" /></td>
 			</tr>
 			<tr>
-				<td>會員編號:</td>
-				<td><input type="TEXT" name="member_no"
-					value="<%=(productOrderVO != null) ? productOrderVO.getMember_no() : ""%>"
-					size="45" /></td>
+				<td>商品金額</td>
+				<td><input type="TEXT" name="product_price" value="<%=(productOrderVO == null) ?"0" : productOrderVO.getProduct_price()%>" size="45" /></td>
 			</tr>
 			<tr>
-				<td>商品金額:</td>
-				<td><input type="TEXT" name="product_price"
-					value="<%=(productOrderVO != null) ? productOrderVO.getProduct_price() : ""%>"
-					size="45" /></td>
+				<td>生日禮券金額</td>
+				<td><input type="TEXT" name="product_coupon_discount" value="<%=(productOrderVO == null) ?"0" : productOrderVO.getProduct_coupon_discount()%>" size="45" /></td>
 			</tr>
 			<tr>
-				<td>生日禮券金額:</td>
-				<td><input type="TEXT" name="product_coupon_discount"
-					value="<%=(productOrderVO != null) ? productOrderVO.getProduct_coupon_discount() : ""%>"
-					size="45" /></td>
+				<td>商品結帳金額</td>
+				<td><input type="TEXT" name="product_checkout_amount" value="<%=(productOrderVO == null) ?"0" : productOrderVO.getProduct_checkout_amount()%>" size="45" /></td>
 			</tr>
 			<tr>
-				<td>商品結帳金額:</td>
-				<td><input type="TEXT" name="product_checkout_amount"
-					value="<%=(productOrderVO != null) ? productOrderVO.getProduct_checkout_amount() : ""%>"
-					size="45" /></td>
+				<td>會員點數</td>
+				<td><input type="TEXT" name="member_points" value="<%=(productOrderVO == null) ?"0" : productOrderVO.getMember_points()%>" size="45" /></td>
 			</tr>
 			<tr>
-				<td>會員點數:</td>
-				<td><input type="TEXT" name="member_points"
-					value="<%=(productOrderVO != null) ? productOrderVO.getMember_points() : ""%>"
-					size="45" /></td>
+				<td>生日禮券編號</td>
+				<td><input type="TEXT" name="birthday_coupon_no" value="<%=(productOrderVO == null) ?"0" : productOrderVO.getBirthday_coupon_no()%>" size="45" /></td>
 			</tr>
 			<tr>
-				<td>生日禮券編號:</td>
-				<td><input type="TEXT" name="birthday_coupon_no"
-					value="<%=(productOrderVO != null) ? productOrderVO.getBirthday_coupon_no() : ""%>"
-					size="45" /></td>
+				<td>收件人</td>
+				<td><input type="TEXT" name="recipient" value="<%=(productOrderVO == null) ?"0" : productOrderVO.getRecipient()%>" size="45" /></td>
 			</tr>
 			<tr>
-				<td>收件人:</td>
-				<td><input type="TEXT" name="recipient"
-					value="<%=(productOrderVO != null) ? productOrderVO.getRecipient() : ""%>"
-					size="45" /></td>
+				<td>收件人電話</td>
+				<td><input type="TEXT" name="recipient_phone" value="<%=(productOrderVO == null) ?"0" : productOrderVO.getRecipient_phone()%>" size="45" /></td>
 			</tr>
 			<tr>
-				<td>收件人電話:</td>
-				<td><input type="TEXT" name="recipient_phone"
-					value="<%=(productOrderVO != null) ? productOrderVO.getRecipient_phone() : ""%>"
-					size="45" /></td>
+				<td>收件人地址</td>
+				<td><input type="TEXT" name="recipient_address" value="<%=(productOrderVO == null) ?"0" : productOrderVO.getRecipient_address()%>" size="45" /></td>
 			</tr>
 			<tr>
-				<td>收件人地址:</td>
-				<td><input type="TEXT" name="recipient_address"
-					value="<%=(productOrderVO != null) ? productOrderVO.getRecipient_address() : ""%>"
-					size="45" /></td>
+				<td>商品訂單成立時間</td>
+				<td><input type="datetime" name="product_orderdate" value="<%=(productOrderVO == null) ?"0" : productOrderVO.getProduct_orderdate()%>" size="45" /></td>
 			</tr>
 			<tr>
-				<td>商品訂單<br>成立時間:
-				</td>
-				<td><input name="product_orderdate" id="f_date1" type="text"></td>
-				<td><%=productOrderVO != null ? productOrderVO.getProduct_orderdate() : ""%></td>
+				<td>商品訂單付款時間</td>
+				<td><input type="datetime" name="product_paydate" value="<%=(productOrderVO == null) ?"0" : productOrderVO.getProduct_paydate()%>" size="45" /></td>
 			</tr>
 			<tr>
-				<td>商品訂單<br>付款時間:
-				</td>
-				<td><input name="product_paydate" id="f_date1" type="text"></td>
-				<td><%=productOrderVO != null ? productOrderVO.getProduct_paydate() : ""%></td>
+				<td>商品訂單結案時間</td>
+				<td><input type="datetime" name="order_closedate" value="<%=(productOrderVO == null) ?"0" : productOrderVO.getOrder_closedate()%>" size="45" /></td>
 			</tr>
 			<tr>
-				<td>商品訂單<br>結案時間:
-				</td>
-				<td><input name="order_closedate" id="f_date1" type="text"></td>
-				<td><%=productOrderVO != null ? productOrderVO.getOrder_closedate() : ""%></td>
+				<td>商品訂單付款狀態</td>
+				<td><input type="TEXT" name="product_payment_status" value="<%=(productOrderVO == null) ?"0" : productOrderVO.getProduct_payment_status()%>" size="45" /></td>
 			</tr>
 			<tr>
-				<td>商品訂單<br>付款狀態:
-				</td>
-				<td><input type="TEXT" name="product_payment_status"
-					value="<%=(productOrderVO != null) ? productOrderVO.getProduct_payment_status() : ""%>"
-					size="45" /></td>
+				<td>商品訂單處理狀態</td>
+				<td><input type="TEXT" name="product_process_status" value="<%=(productOrderVO == null) ?"0" : productOrderVO.getProduct_process_status()%>" size="45" /></td>
 			</tr>
 			<tr>
-				<td>商品訂單<br>處理狀態:
-				</td>
-				<td><input type="TEXT" name="product_process_status"
-					value="<%=(productOrderVO != null) ? productOrderVO.getProduct_process_status() : ""%>"
-					size="45" /></td>
+				<td>商品訂單撥款金額</td>
+				<td><input type="TEXT" name="product_order_allocation_amount" value="<%=(productOrderVO == null) ?"0" : productOrderVO.getProduct_order_allocation_amount()%>" size="45" /></td>
 			</tr>
 			<tr>
-				<td>商品訂單<br>撥款金額:
-				</td>
-				<td><input type="TEXT" name="product_order_allocation_amount"
-					value="<%=(productOrderVO != null) ? productOrderVO.getProduct_order_allocation_amount() : ""%>"
-					size="45" /></td>
-			</tr>
-			<tr>
-				<td>商品訂單<br>撥款狀態:
-				</td>
-				<td><input type="TEXT" name="product_order_allocation_status"
-					value="<%=(productOrderVO != null) ? productOrderVO.getProduct_order_allocation_status() : ""%>"
-					size="45" /></td>
+				<td>商品訂單撥款狀態</td>
+				<td><input type="TEXT" name="product_order_allocation_status" value="<%=(productOrderVO == null) ?"0" : productOrderVO.getProduct_order_allocation_status()%>" size="45" /></td>
 			</tr>
 		</table>
 		<br> <input type="hidden" name="action" value="insert"> 
